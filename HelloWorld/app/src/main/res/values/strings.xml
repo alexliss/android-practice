@@ -3,4 +3,8 @@
     <string name="temperature">26℃</string>
     <string name="refresh">Refresh</string>
     <string name="city">Omsk</string>
+    <string name="change_city">Change City</string>
+    <string name="city_search">City</string>
+    <string name="wind_and_pressure">Show wind speed and pressure</string>
+    <string name="edit_city_done">Done</string>
 </resources>
