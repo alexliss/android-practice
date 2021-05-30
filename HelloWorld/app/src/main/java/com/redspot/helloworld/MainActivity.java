@@ -11,8 +11,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView greeting = (TextView) findViewById(R.id.greeting);
-        String hello = getResources().getString(R.string.hello_guys);
+        final TextView greeting = (TextView) findViewById(R.id.temperature);
+        String hello = getResources().getString(R.string.temperature);
         hello += "! ;з";
         greeting.setText(hello);
     }

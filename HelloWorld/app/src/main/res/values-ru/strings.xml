@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Привет</string>
-    <string name="hello_guys">Привет, ребят</string>
-    <string name="button">здесь ничего не будет...</string>
+    <string name="temperature">34℃</string>
+    <string name="refresh">Обновить</string>
+    <string name="city">Омск</string>
 </resources>
