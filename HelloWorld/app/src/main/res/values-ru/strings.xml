@@ -8,4 +8,8 @@
     <string name="city_search">Город</string>
     <string name="wind_and_pressure">Показывать скорость ветра и давление</string>
     <string name="edit_city_done">Готово</string>
+    <string name="settings">Настройки</string>
+    <string name="switch_to_dark">Включить темную тему</string>
+    <string name="reset_settings">Сбросить настройки</string>
+    <string name="go_back">Назад</string>
 </resources>

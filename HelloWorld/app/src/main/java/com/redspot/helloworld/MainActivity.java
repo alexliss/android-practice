@@ -8,44 +8,84 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    Button refresh;
+    Button changeCity;
+    Button returnOnMain;
+    Button goToSettings;
+    Button returnFromSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Button refresh = findViewById(R.id.refresh);
-        Button changeCity = findViewById(R.id.changeCity);
-        //Button returnOnMain = findViewById(R.id.editCityDone);
 
+        startMainScreen();
+
+    }
+
+    public void startMainScreen() {
+        setContentView(R.layout.activity_main);
+        refresh = findViewById(R.id.refresh);
+        changeCity = findViewById(R.id.changeCity);
+        goToSettings = findViewById(R.id.goToSettings);
+        refreshOnClick();
+        changeCityOnClick();
+        goToSettingsOnClick();
+    }
+
+    public void startChangeCityScreen() {
+        setContentView(R.layout.change_city);
+        returnOnMain = findViewById(R.id.editCityDone);
+        returnOnMainOnClick();
+    }
+
+    public void startSettingsScreen() {
+        setContentView(R.layout.settings);
+        returnFromSettings = findViewById(R.id.backToMain);
+        returnFromSettingsOnClick();
+    }
+
+    public void refreshOnClick() {
         refresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "meow", Toast.LENGTH_SHORT).show();
             }
         });
+    }
 
-
+    public void changeCityOnClick() {
         changeCity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.change_city);
+                startChangeCityScreen();
             }
         });
-
-
-//        returnOnMain.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                setContentView(R.layout.activity_main);
-//            }
-//        });
-
-        final TextView temperature = (TextView) findViewById(R.id.temperature);
-        String tempValue = getResources().getString(R.string.temperature);
-        tempValue += "! ;з";
-        temperature.setText(tempValue);
-
     }
 
+    public void returnOnMainOnClick() {
+        returnOnMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startMainScreen();
+            }
+        });
+    }
 
+    public void goToSettingsOnClick() {
+        goToSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startSettingsScreen();
+            }
+        });
+    }
+
+    public void returnFromSettingsOnClick() {
+        returnFromSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startMainScreen();
+            }
+        });
+    }
 }
