@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Привет</string>
     <string name="temperature">34℃</string>
-    <string name="refresh">Обновить</string>
+    <string name="refresh">Обновить (счетчик++)</string>
     <string name="city">Омск</string>
     <string name="change_city">Сменить город</string>
     <string name="city_search">Город</string>
@@ -12,4 +12,6 @@
     <string name="switch_to_dark">Включить темную тему</string>
     <string name="reset_settings">Сбросить настройки</string>
     <string name="go_back">Назад</string>
+    <string name="text_counter">Счетчик:</string>
+    <string name="counter">0</string>
 </resources>

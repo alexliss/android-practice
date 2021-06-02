@@ -64,4 +64,24 @@
         app:layout_constraintStart_toStartOf="@+id/temperature"
         app:layout_constraintTop_toBottomOf="@+id/changeCity" />
 
+    <TextView
+        android:id="@+id/textCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/text_counter"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/city"
+        app:layout_constraintTop_toBottomOf="@+id/temperature" />
+
+    <TextView
+        android:id="@+id/counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/counter"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/textCounter"
+        app:layout_constraintTop_toBottomOf="@+id/temperature" />
+
 </android.support.constraint.ConstraintLayout>
