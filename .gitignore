@@ -7,11 +7,6 @@
 .externalNativeBuild
 .cxx
 local.properties
-gradle.properties
 gradlew
 gradlew.bat
 .idea/
-
-build.gradle
-
-settings.gradle
