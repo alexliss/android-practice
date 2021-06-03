@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 
 public class SelectCityActivity extends AppCompatActivity {
 
@@ -13,8 +15,13 @@ public class SelectCityActivity extends AppCompatActivity {
         setContentView(R.layout.activity_select_city);
 
         Button backToMain = findViewById(R.id.editCityDone);
+        EditText city = findViewById(R.id.editTextCity);
+        CheckBox windAndPressure = findViewById(R.id.showWindAndPressure);
+
         backToMain.setOnClickListener(v -> {
             Intent intent = new Intent(SelectCityActivity.this, MainActivity.class);
+            intent.putExtra("city", city.getText().toString());
+            intent.putExtra("wind", windAndPressure.isChecked());
             startActivity(intent);
         });
     }

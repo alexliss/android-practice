@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,24 +19,34 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button refresh = findViewById(R.id.refresh);
-        Button changeCity = findViewById(R.id.changeCity);
-        Button goToSettings = findViewById(R.id.goToSettings);
+        final Button refresh = findViewById(R.id.refresh);
+        final Button changeCity = findViewById(R.id.changeCity);
+        final Button goToSettings = findViewById(R.id.goToSettings);
+        final TextView city = findViewById(R.id.city);
+        final TextView windAndPressure = findViewById(R.id.windAndPressure);
+        final TextView counter = findViewById(R.id.counter);
+        final MainPresenter presenter = MainPresenter.getInstance();
+
+        counter.setText(((Integer)presenter.getCounter()).toString());
 
         String instanceState;
         if (savedInstanceState == null){
             instanceState = "Первый запуск!";
         }
-        else{
+        else {
             instanceState = "Повторный запуск!";
         }
 
+        Bundle arguments = getIntent().getExtras();
+
+        if (arguments != null) {
+            city.setText(arguments.getString("city"));
+            if (arguments.getBoolean("wind")) {
+                windAndPressure.setVisibility(View.VISIBLE);
+            }
+        }
+
         Toast.makeText(getApplicationContext(), instanceState + " - onCreate()", Toast.LENGTH_SHORT).show();
-
-        final TextView counter = findViewById(R.id.counter);
-        final MainPresenter presenter = MainPresenter.getInstance();
-
-        counter.setText(((Integer)presenter.getCounter()).toString());
 
         refresh.setOnClickListener(v -> {
             presenter.incrementCounter();

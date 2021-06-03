@@ -5,7 +5,7 @@
     <string name="city">Omsk</string>
     <string name="change_city">Change City</string>
     <string name="city_search">City</string>
-    <string name="wind_and_pressure">Show wind speed and pressure</string>
+    <string name="show_wind_and_pressure">Show wind speed and pressure</string>
     <string name="edit_city_done">Done</string>
     <string name="settings">Settings</string>
     <string name="switch_to_dark">Switch to dark theme</string>
@@ -13,4 +13,5 @@
     <string name="go_back">Back</string>
     <string name="text_counter">Counter:</string>
     <string name="counter">0</string>
+    <string name="wind_and_pressure">Wind speed: 24 m/s   Pressure: 750 mm Hg</string>
 </resources>

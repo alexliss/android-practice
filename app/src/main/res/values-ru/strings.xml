@@ -6,7 +6,7 @@
     <string name="city">Омск</string>
     <string name="change_city">Сменить город</string>
     <string name="city_search">Город</string>
-    <string name="wind_and_pressure">Показывать скорость ветра и давление</string>
+    <string name="show_wind_and_pressure">Показывать скорость ветра и давление</string>
     <string name="edit_city_done">Готово</string>
     <string name="settings">Настройки</string>
     <string name="switch_to_dark">Включить темную тему</string>
@@ -14,4 +14,5 @@
     <string name="go_back">Назад</string>
     <string name="text_counter">Счетчик:</string>
     <string name="counter">0</string>
+    <string name="wind_and_pressure">Wind speed: 24 m/s   Pressure: 750 mm Hg</string>
 </resources>
