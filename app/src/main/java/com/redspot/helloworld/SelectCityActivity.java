@@ -15,14 +15,15 @@ public class SelectCityActivity extends AppCompatActivity {
         setContentView(R.layout.activity_select_city);
 
         Button backToMain = findViewById(R.id.editCityDone);
-        EditText city = findViewById(R.id.editTextCity);
         CheckBox windAndPressure = findViewById(R.id.showWindAndPressure);
+        EditText city = findViewById(R.id.editTextCity);
 
         backToMain.setOnClickListener(v -> {
-            Intent intent = new Intent(SelectCityActivity.this, MainActivity.class);
-            intent.putExtra("city", city.getText().toString());
-            intent.putExtra("wind", windAndPressure.isChecked());
-            startActivity(intent);
+            Intent intentResult = new Intent(SelectCityActivity.this, MainActivity.class);
+            intentResult.putExtra("city", city.getText().toString());
+            intentResult.putExtra("wind", windAndPressure.isChecked());
+            setResult(RESULT_OK, intentResult);
+            finish();
         });
     }
 }

@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    private final static int REQUEST_CODE = 1;
+
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +24,9 @@ public class MainActivity extends AppCompatActivity {
         final Button refresh = findViewById(R.id.refresh);
         final Button changeCity = findViewById(R.id.changeCity);
         final Button goToSettings = findViewById(R.id.goToSettings);
-        final TextView city = findViewById(R.id.city);
-        final TextView windAndPressure = findViewById(R.id.windAndPressure);
         final TextView counter = findViewById(R.id.counter);
         final MainPresenter presenter = MainPresenter.getInstance();
+        final TextView city = findViewById(R.id.city);
 
         counter.setText(((Integer)presenter.getCounter()).toString());
 
@@ -37,15 +38,6 @@ public class MainActivity extends AppCompatActivity {
             instanceState = "Повторный запуск!";
         }
 
-        Bundle arguments = getIntent().getExtras();
-
-        if (arguments != null) {
-            city.setText(arguments.getString("city"));
-            if (arguments.getBoolean("wind")) {
-                windAndPressure.setVisibility(View.VISIBLE);
-            }
-        }
-
         Toast.makeText(getApplicationContext(), instanceState + " - onCreate()", Toast.LENGTH_SHORT).show();
 
         refresh.setOnClickListener(v -> {
@@ -55,11 +47,12 @@ public class MainActivity extends AppCompatActivity {
 
         changeCity.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, SelectCityActivity.class);
-            startActivity(intent);
+            startActivityForResult(intent, REQUEST_CODE);
         });
 
         goToSettings.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+            intent.putExtra("city", city.getText().toString());
             startActivity(intent);
         });
     }
@@ -118,5 +111,24 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState, outPersistentState);
         Toast.makeText(getApplicationContext(), "onSaveInstanceState()", Toast.LENGTH_SHORT).show();
         Log.d(null, "onSaveInstanceState()");
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode != REQUEST_CODE) {
+            super.onActivityResult(requestCode, resultCode, data);
+            return;
+        }
+
+        if (resultCode == RESULT_OK) {
+            TextView city = findViewById(R.id.city);
+            city.setText(data.getStringExtra("city"));
+            TextView windAndPressure = findViewById(R.id.windAndPressure);
+            if (data.getBooleanExtra("wind", false)) {
+                windAndPressure.setVisibility(View.VISIBLE);
+            } else {
+                windAndPressure.setVisibility(View.INVISIBLE);
+            }
+        }
     }
 }
