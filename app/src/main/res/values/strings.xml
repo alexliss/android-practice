@@ -14,4 +14,6 @@
     <string name="text_counter">Counter:</string>
     <string name="counter">0</string>
     <string name="wind_and_pressure">Wind speed: 24 m/s   Pressure: 750 mm Hg</string>
+    <string name="go_to_browser">Go to browser</string>
+    <string name="site" translatable="false">https://weather.com/weather/today/l/54.97,73.45</string>
 </resources>

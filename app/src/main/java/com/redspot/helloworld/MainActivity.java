@@ -2,6 +2,7 @@ package com.redspot.helloworld;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         final Button refresh = findViewById(R.id.refresh);
         final Button changeCity = findViewById(R.id.changeCity);
         final Button goToSettings = findViewById(R.id.goToSettings);
+        final Button goToBrowser = findViewById(R.id.goToBrowser);
         final TextView counter = findViewById(R.id.counter);
         final MainPresenter presenter = MainPresenter.getInstance();
         final TextView city = findViewById(R.id.city);
@@ -54,6 +56,13 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
             intent.putExtra("city", city.getText().toString());
             startActivity(intent);
+        });
+
+        goToBrowser.setOnClickListener(v -> {
+            String url = getResources().getString(R.string.site);
+            Uri uri = Uri.parse(url);
+            Intent browser = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(browser);
         });
     }
 
