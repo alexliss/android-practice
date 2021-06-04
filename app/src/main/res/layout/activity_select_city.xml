@@ -17,13 +17,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.248"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="LabelFor" />
 
     <CheckBox
-        android:id="@+id/windAndPressure"
+        android:id="@+id/showWindAndPressure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/wind_and_pressure"
+        android:text="@string/show_wind_and_pressure"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -41,7 +42,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/editTextCity"
-        app:layout_constraintTop_toBottomOf="@+id/windAndPressure"
+        app:layout_constraintTop_toBottomOf="@+id/showWindAndPressure"
         app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>
