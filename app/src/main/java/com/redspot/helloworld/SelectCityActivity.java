@@ -20,8 +20,8 @@ public class SelectCityActivity extends AppCompatActivity {
 
         backToMain.setOnClickListener(v -> {
             Intent intentResult = new Intent(SelectCityActivity.this, MainActivity.class);
-            intentResult.putExtra("city", city.getText().toString());
-            intentResult.putExtra("wind", windAndPressure.isChecked());
+            intentResult.putExtra(MainActivity.KEY_CITY, city.getText().toString());
+            intentResult.putExtra(MainActivity.KEY_WIND, windAndPressure.isChecked());
             setResult(RESULT_OK, intentResult);
             finish();
         });

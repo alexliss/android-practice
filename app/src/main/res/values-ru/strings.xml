@@ -16,4 +16,6 @@
     <string name="counter">0</string>
     <string name="wind_and_pressure">Скорость ветра: 24 м/с   Давление: 750 мм рт.ст.</string>
     <string name="go_to_browser">Открыть в браузере</string>
+    <string name="first_launch">Первый запуск!</string>
+    <string name="relaunching">Повторный запуск!</string>
 </resources>

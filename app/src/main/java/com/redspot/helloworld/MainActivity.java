@@ -15,7 +15,9 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final static int REQUEST_CODE = 1;
+    private final static int REQUEST_CODE_SELECT_CITY = 1;
+    public final static String KEY_CITY = "city";
+    public final static String KEY_WIND = "wind";
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -34,10 +36,10 @@ public class MainActivity extends AppCompatActivity {
 
         String instanceState;
         if (savedInstanceState == null){
-            instanceState = "Первый запуск!";
+            instanceState = getString(R.string.first_launch);
         }
         else {
-            instanceState = "Повторный запуск!";
+            instanceState = getString(R.string.relaunching);
         }
 
         Toast.makeText(getApplicationContext(), instanceState + " - onCreate()", Toast.LENGTH_SHORT).show();
@@ -49,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         changeCity.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, SelectCityActivity.class);
-            startActivityForResult(intent, REQUEST_CODE);
+            startActivityForResult(intent, REQUEST_CODE_SELECT_CITY);
         });
 
         goToSettings.setOnClickListener(v -> {
@@ -59,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         goToBrowser.setOnClickListener(v -> {
-            String url = getResources().getString(R.string.site);
-            Uri uri = Uri.parse(url);
+            final String url = getResources().getString(R.string.site);
+            final Uri uri = Uri.parse(url);
             Intent browser = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(browser);
         });
@@ -124,20 +126,22 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode != REQUEST_CODE) {
-            super.onActivityResult(requestCode, resultCode, data);
-            return;
-        }
-
-        if (resultCode == RESULT_OK) {
-            TextView city = findViewById(R.id.city);
-            city.setText(data.getStringExtra("city"));
-            TextView windAndPressure = findViewById(R.id.windAndPressure);
-            if (data.getBooleanExtra("wind", false)) {
-                windAndPressure.setVisibility(View.VISIBLE);
-            } else {
-                windAndPressure.setVisibility(View.INVISIBLE);
-            }
+        switch (requestCode) {
+            case REQUEST_CODE_SELECT_CITY:
+                // проверка на результат внутри для обработки случаев, когда результат не ок (специфический код, так сказатб)
+                if (resultCode == RESULT_OK) {
+                    TextView city = findViewById(R.id.city);
+                    city.setText(data.getStringExtra(KEY_CITY));
+                    TextView windAndPressure = findViewById(R.id.windAndPressure);
+                    if (data.getBooleanExtra(KEY_WIND, false)) {
+                        windAndPressure.setVisibility(View.VISIBLE);
+                    } else {
+                        windAndPressure.setVisibility(View.INVISIBLE);
+                    }
+                }
+                break;
+            default:
+                super.onActivityResult(requestCode, resultCode, data);
         }
     }
 }
