@@ -6,101 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/temperature"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/temperature"
-        android:textSize="96sp"
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.redspot.helloworld.MainFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.15" />
-
-    <TextView
-        android:id="@+id/city"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/city"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/temperature"
-        app:layout_constraintTop_toBottomOf="@+id/temperature"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/refresh"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/refresh"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/temperature"
-        app:layout_constraintTop_toBottomOf="@+id/city"
-        app:layout_constraintVertical_bias="0.137" />
-
-    <Button
-        android:id="@+id/changeCity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/change_city"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/temperature"
-        app:layout_constraintTop_toBottomOf="@+id/refresh"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/goToSettings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/settings"
-        app:layout_constraintStart_toStartOf="@+id/temperature"
-        app:layout_constraintTop_toBottomOf="@+id/changeCity" />
-
-    <TextView
-        android:id="@+id/textCounter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="@string/text_counter"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/city"
-        app:layout_constraintTop_toBottomOf="@+id/temperature" />
-
-    <TextView
-        android:id="@+id/counter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="@string/counter"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/textCounter"
-        app:layout_constraintTop_toBottomOf="@+id/temperature" />
-
-    <TextView
-        android:id="@+id/windAndPressure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/wind_and_pressure"
-        android:textSize="16sp"
-        android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="@+id/temperature"
-        app:layout_constraintTop_toBottomOf="@+id/city" />
-
-    <Button
-        android:id="@+id/goToBrowser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/go_to_browser"
-        app:layout_constraintStart_toStartOf="@+id/goToSettings"
-        app:layout_constraintTop_toBottomOf="@+id/goToSettings" />
+        tools:layout="@layout/fragment_main" />
 
 </android.support.constraint.ConstraintLayout>
