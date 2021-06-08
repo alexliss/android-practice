@@ -6,43 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".SelectCityActivity">
 
-    <EditText
-        android:id="@+id/editTextCity"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:layout_marginTop="64dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/city_search"
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.redspot.helloworld.SelectCityFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.248"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="LabelFor" />
-
-    <CheckBox
-        android:id="@+id/showWindAndPressure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/show_wind_and_pressure"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextCity"
-        app:layout_constraintTop_toBottomOf="@id/editTextCity"
-        app:layout_constraintVertical_bias="0.733" />
-
-    <Button
-        android:id="@+id/editCityDone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="280dp"
-        android:text="@string/edit_city_done"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextCity"
-        app:layout_constraintTop_toBottomOf="@+id/showWindAndPressure"
-        app:layout_constraintVertical_bias="0.0" />
+        tools:layout="@layout/fragment_select_city" />
 
 </android.support.constraint.ConstraintLayout>
