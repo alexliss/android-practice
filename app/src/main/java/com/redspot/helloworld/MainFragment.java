@@ -39,7 +39,6 @@ public class MainFragment extends Fragment {
         final Button goToBrowser = getView().findViewById(R.id.goToBrowser);
         final TextView counter = getView().findViewById(R.id.counter);
         final MainPresenter presenter = MainPresenter.getInstance();
-        final TextView city = getView().findViewById(R.id.city);
 
         counter.setText(((Integer)presenter.getCounter()).toString());
 
@@ -59,13 +58,12 @@ public class MainFragment extends Fragment {
         });
 
         changeCity.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), SelectCityActivity.class);
+            Intent intent = new Intent(getContext(), SelectCityActivity.class);
             startActivityForResult(intent, REQUEST_CODE_SELECT_CITY);
         });
 
         goToSettings.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), SettingsActivity.class);
-            intent.putExtra("city", city.getText().toString());
+            Intent intent = new Intent(getContext(), SettingsActivity.class);
             startActivity(intent);
         });
 

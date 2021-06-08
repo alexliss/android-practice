@@ -30,7 +30,7 @@ public class SelectCityFragment extends Fragment {
         EditText city = getView().findViewById(R.id.editTextCity);
 
         backToMain.setOnClickListener(v -> {
-            Intent intentResult = new Intent(getActivity(), MainActivity.class);
+            Intent intentResult = new Intent(getContext(), MainActivity.class);
             intentResult.putExtra(MainFragment.KEY_CITY, city.getText().toString());
             intentResult.putExtra(MainFragment.KEY_WIND, windAndPressure.isChecked());
             Objects.requireNonNull(getActivity()).setResult(Activity.RESULT_OK, intentResult);
