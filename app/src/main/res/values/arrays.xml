@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="temperatures">
+        <item>23</item>
+        <item>28</item>
+        <item>35</item>
+        <item>18</item>
+        <item>20</item>
+        <item>24</item>
+        <item>26</item>
+    </integer-array>
+    <string-array name="days">
+        <item>tomorrow</item>
+        <item>10.06</item>
+        <item>11.06</item>
+        <item>12.06</item>
+        <item>13.06</item>
+        <item>14.06</item>
+        <item>15.06</item>
+    </string-array>
+</resources>

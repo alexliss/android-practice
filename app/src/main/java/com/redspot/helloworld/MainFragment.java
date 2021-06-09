@@ -110,7 +110,7 @@ public class MainFragment extends Fragment {
         separator.setDrawable(getActivity().getDrawable(R.drawable.future_weather_separator));
         recyclerView.addItemDecoration(separator);
 
-        FutureWeatherAdapter adapter = new FutureWeatherAdapter();
+        FutureWeatherAdapter adapter = new FutureWeatherAdapter(getResources());
         recyclerView.setAdapter(adapter);
 
     }

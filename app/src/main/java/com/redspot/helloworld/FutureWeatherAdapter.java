@@ -1,40 +1,52 @@
 package com.redspot.helloworld;
 
+import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.util.ArrayMap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class FutureWeatherAdapter extends RecyclerView.Adapter<FutureWeatherAdapter.ViewHolder> {
 
-    private int[] temp = {23, 28, 20, 18};
-    private String[] day = {"tomorrow", "day after", "12.06", "13.06"};
+    ArrayMap<String, Integer> data = new ArrayMap<String, Integer>();
+
+    public FutureWeatherAdapter(Resources resources) {
+        super();
+        int[] temperatures = resources.getIntArray(R.array.temperatures);
+        String[] days = resources.getStringArray(R.array.days);
+        for(int i = 0; i < temperatures.length; i++) {
+            data.put(days[i], temperatures[i]);
+        }
+    }
 
     @NonNull
     @Override
     public FutureWeatherAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext())
+        View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.item, viewGroup, false);
-        return new ViewHolder(v);
+        return new ViewHolder(view);
 
     }
 
     @Override
     public void onBindViewHolder(@NonNull FutureWeatherAdapter.ViewHolder viewHolder, int i) {
-        viewHolder.setData(temp[i], day[i]);
+        viewHolder.setData(data.valueAt(i), data.keyAt(i));
     }
 
     @Override
     public int getItemCount() {
-        return 4;
+        return data.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView temperature;
-        private TextView day;
+        final private TextView temperature;
+        final private TextView day;
 
         public ViewHolder(View itemView) {
             super(itemView);
