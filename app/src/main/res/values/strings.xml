@@ -20,4 +20,5 @@
     <string name="relaunching">Relaunching!</string>
     <string name="reset_settings_confirm">Are you sure about that?…</string>
     <string name="confirm">Yasss</string>
+    <string name="select_city">Select city</string>
 </resources>
