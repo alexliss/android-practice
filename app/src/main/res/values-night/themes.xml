@@ -7,4 +7,9 @@
         <item name="colorAccent">@color/teal_200</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="FunkyTheme.HelloWorld" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">@color/violet</item>
+        <item name="colorPrimaryDark">@color/space_blue</item>
+        <item name="colorAccent">@color/yellow</item>
+    </style>
 </resources>

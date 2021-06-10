@@ -38,6 +38,7 @@
         android:layout_height="wrap_content"
         android:text="@string/refresh"
         android:textSize="12sp"
+        app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/temperature"
         app:layout_constraintTop_toBottomOf="@+id/windAndPressure"
@@ -51,6 +52,7 @@
         android:layout_marginEnd="8dp"
         android:text="@string/change_city"
         android:textSize="12sp"
+        app:cornerRadius="30dp"
         app:layout_constraintEnd_toStartOf="@+id/goToSettings"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/refresh"
@@ -58,12 +60,14 @@
 
     <Button
         android:id="@+id/goToSettings"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/settings"
         android:textSize="12sp"
+        app:cornerRadius="30dp"
         app:layout_constraintEnd_toStartOf="@+id/goToBrowser"
         app:layout_constraintStart_toEndOf="@+id/changeCity"
         app:layout_constraintTop_toTopOf="@+id/refresh" />
@@ -106,6 +110,7 @@
         android:layout_width="0dp"
         android:layout_height="128dp"
         android:layout_marginStart="16dp"
+        android:scrollbarStyle="outsideInset"
         app:layout_constraintBottom_toBottomOf="@+id/temperature"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/temperature"
@@ -114,12 +119,14 @@
 
     <Button
         android:id="@+id/goToBrowser"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="40dp"
         android:text="@string/go_to_browser"
         android:textSize="12sp"
+        app:cornerRadius="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.33"
         app:layout_constraintStart_toEndOf="@+id/goToSettings"
