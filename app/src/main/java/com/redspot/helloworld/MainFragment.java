@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +44,7 @@ public class MainFragment extends Fragment {
         final MainPresenter presenter = MainPresenter.getInstance();
 
         counter.setText(((Integer)presenter.getCounter()).toString());
+        initFutureWeather();
 
         String instanceState;
         if (savedInstanceState == null){
@@ -94,5 +98,20 @@ public class MainFragment extends Fragment {
             default:
                 super.onActivityResult(requestCode, resultCode, data);
         }
+    }
+
+    public void initFutureWeather() {
+        RecyclerView recyclerView = getActivity().findViewById(R.id.futureWeather);
+        recyclerView.setHasFixedSize(true);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+        DividerItemDecoration separator = new DividerItemDecoration(getActivity(), LinearLayoutManager.HORIZONTAL);
+        separator.setDrawable(getActivity().getDrawable(R.drawable.future_weather_separator));
+        recyclerView.addItemDecoration(separator);
+
+        FutureWeatherAdapter adapter = new FutureWeatherAdapter(getResources());
+        recyclerView.setAdapter(adapter);
+
     }
 }
