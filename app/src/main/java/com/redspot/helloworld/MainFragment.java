@@ -46,32 +46,32 @@ public class MainFragment extends Fragment {
         counter.setText(((Integer)presenter.getCounter()).toString());
         initFutureWeather();
 
-        String instanceState;
-        if (savedInstanceState == null){
-            instanceState = getString(R.string.first_launch);
-        }
-        else {
-            instanceState = getString(R.string.relaunching);
-        }
+//        String instanceState;
+//        if (savedInstanceState == null){
+//            instanceState = getString(R.string.first_launch);
+//        }
+//        else {
+//            instanceState = getString(R.string.relaunching);
+//        }
+//
+//        Toast.makeText(getActivity(), instanceState + " - onCreate()", Toast.LENGTH_SHORT).show();
 
-        Toast.makeText(getActivity(), instanceState + " - onCreate()", Toast.LENGTH_SHORT).show();
-
-        refresh.setOnClickListener(v -> {
+        refresh.setOnClickListener(view -> {
             presenter.incrementCounter();
             counter.setText(((Integer)presenter.getCounter()).toString());
         });
 
-        changeCity.setOnClickListener(v -> {
+        changeCity.setOnClickListener(view -> {
             Intent intent = new Intent(getContext(), SelectCityActivity.class);
             startActivityForResult(intent, REQUEST_CODE_SELECT_CITY);
         });
 
-        goToSettings.setOnClickListener(v -> {
+        goToSettings.setOnClickListener(view -> {
             Intent intent = new Intent(getContext(), SettingsActivity.class);
             startActivity(intent);
         });
 
-        goToBrowser.setOnClickListener(v -> {
+        goToBrowser.setOnClickListener(view -> {
             final String url = getResources().getString(R.string.site);
             final Uri uri = Uri.parse(url);
             Intent browser = new Intent(Intent.ACTION_VIEW, uri);
@@ -86,8 +86,9 @@ public class MainFragment extends Fragment {
                 // проверка на результат внутри для обработки случаев, когда результат не ок (специфический код, так сказатб)
                 if (resultCode == Activity.RESULT_OK) {
                     TextView city = Objects.requireNonNull(getView()).findViewById(R.id.city);
-                    if (data.getStringExtra(KEY_CITY) != null && !data.getStringExtra(KEY_CITY).equals("")) {
-                        city.setText(data.getStringExtra(KEY_CITY));
+                    String newCity = data.getStringExtra(KEY_CITY);
+                    if (newCity != null && !newCity.equals("")) {
+                        city.setText(newCity);
                     }
                     TextView windAndPressure = getView().findViewById(R.id.windAndPressure);
                     if (data.getBooleanExtra(KEY_WIND, false)) {

@@ -38,13 +38,13 @@ public class SettingsFragment extends Fragment {
         final SettingsPresenter presenter = SettingsPresenter.getInstance();
         toDarkTheme.setChecked(presenter.isThemeDark());
 
-        toDarkTheme.setOnClickListener(v -> presenter.setDarkThemeSwitch(toDarkTheme.isChecked()));
+        toDarkTheme.setOnClickListener(view -> presenter.setDarkThemeSwitch(toDarkTheme.isChecked()));
 
-        backToMain.setOnClickListener(v -> Objects.requireNonNull(getActivity()).finish());
+        backToMain.setOnClickListener(view -> Objects.requireNonNull(getActivity()).finish());
 
-        resetSettings.setOnClickListener(v -> {
-            Snackbar.make(v, getActivity().getString(R.string.reset_settings_confirm), Snackbar.LENGTH_LONG)
-                    .setAction(getActivity().getString(R.string.confirm), v1 -> {
+        resetSettings.setOnClickListener(view -> {
+            Snackbar.make(view, getActivity().getString(R.string.reset_settings_confirm), Snackbar.LENGTH_LONG)
+                    .setAction(getActivity().getString(R.string.confirm), view1 -> {
                         toDarkTheme.setChecked(false);
                         presenter.setDarkThemeSwitch(false);
                     }).show();
