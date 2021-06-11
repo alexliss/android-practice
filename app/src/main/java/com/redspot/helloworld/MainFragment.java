@@ -44,7 +44,7 @@ public class MainFragment extends Fragment {
     public final static String KEY_WIND = "wind";
     public final static String WEATHER_URL_BASE = "https://api.openweathermap.org/data/2.5/weather";
     public static final String WEATHER_API_CALL = "&appid=";
-    public final static String WEATHER_API_KEY = "b44bce59525245cdfbd7a8e1f72bb589";
+    public final static String WEATHER_API_KEY = "";
     public final static String WEATHER_UNITS = "&units=metric";
     public final static String WEATHER_CITY = "?q=";
     public final static String WEATHER_LANG = "&lang=RU";
@@ -164,7 +164,7 @@ public class MainFragment extends Fragment {
                             urlConnection = (HttpsURLConnection) uri.openConnection();
                             urlConnection.setRequestMethod("GET"); // установка метода получения данных -GET
                             urlConnection.setReadTimeout(10000); // установка таймаута - 10 000 миллисекунд
-                            
+
                             BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream())); // читаем  данные в поток
                             String result = getLines(in);
                             // преобразование данных запроса в модель
