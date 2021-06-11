@@ -1,49 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".SelectCityFragment">
 
-    <EditText
-        android:id="@+id/editTextCity"
+    <TextView
+        android:id="@+id/selectCity"
         android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:layout_marginTop="64dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="@string/city_search"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.248"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/select_city"
+        android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="LabelFor"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editCity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/selectCity"
+        app:layout_constraintTop_toBottomOf="@+id/selectCity">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/city_search" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <CheckBox
         android:id="@+id/showWindAndPressure"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="@string/show_wind_and_pressure"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextCity"
-        app:layout_constraintTop_toBottomOf="@id/editTextCity"
-        app:layout_constraintVertical_bias="0.733" />
+        app:layout_constraintBottom_toTopOf="@+id/editCityDone"
+        app:layout_constraintStart_toStartOf="@+id/editCity" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/editCityDone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="280dp"
+        android:layout_marginBottom="48dp"
         android:text="@string/edit_city_done"
+        app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextCity"
-        app:layout_constraintTop_toBottomOf="@+id/showWindAndPressure"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="@+id/editCity" />
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

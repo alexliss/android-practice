@@ -18,4 +18,7 @@
     <string name="go_to_browser">Открыть в браузере</string>
     <string name="first_launch">Первый запуск!</string>
     <string name="relaunching">Повторный запуск!</string>
+    <string name="reset_settings_confirm">Точно-точно?…</string>
+    <string name="confirm">Дя!</string>
+    <string name="select_city">Выбор города</string>
 </resources>
