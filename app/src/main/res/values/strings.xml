@@ -18,4 +18,7 @@
     <string name="site" translatable="false">https://weather.com/weather/today/l/54.97,73.45</string>
     <string name="first_launch">First launch!</string>
     <string name="relaunching">Relaunching!</string>
+    <string name="reset_settings_confirm">Are you sure about that?…</string>
+    <string name="confirm">Yasss</string>
+    <string name="select_city">Select city</string>
 </resources>
